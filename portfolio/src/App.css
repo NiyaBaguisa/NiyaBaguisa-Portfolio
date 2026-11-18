@@ -23,6 +23,7 @@ z-index: 100;
 }
 .hamburger-container a{
   text-decoration: none;
+    transition: 0.4s ease;
 }
 .hamburger-icon{
   width: 2rem;
@@ -33,6 +34,9 @@ z-index: 100;
   cursor: pointer;
   
 }
+.hamburger-container:hover{
+  scale: 1.1;
+}
 
 .hamburger-icon > div{
   width: 2rem;
@@ -42,7 +46,6 @@ z-index: 100;
 }
 
 .nav ul{
- 
   width: 20vw;
   position: absolute;
   margin-top: 50px;
@@ -52,6 +55,23 @@ z-index: 100;
 }
 .nav ul > li{
 margin-bottom: 1rem;
+position: relative;
+width: fit-content;
+}
+.nav ul >li::after{
+content: '';
+ position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, var(--yellow), var(--blue));
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-out;
+}
+.nav ul >li:hover::after{
+transform: scaleX(1);
 }
 
 .arrow{
@@ -239,7 +259,12 @@ width: 60%;
 #me{
   width: 100%;
   height: 50%;
-background-color: gray;
+
+}
+#me >img{
+  width: 100%;
+  border: 2px solid var(--orange);
+  border-radius: 8px;
 }
 .colorful-name > span:nth-child(10n +1), .colorful-name > span:nth-child(10n +6) {
   color:var(--orange)
@@ -301,7 +326,14 @@ background-color: gray;
   align-items: center;
 }
 
+#game-canvas{
+  opacity:1;
+transition: opacity 0.5s ease-out;
+}
 
+#game-canvas.faded{
+  opacity: 0;
+}
 #project-page{
   grid-area: proj;
   display: flex;
@@ -332,12 +364,28 @@ justify-content: flex-end;
 gap: 5%;
   align-items: baseline;
   flex-direction: row-reverse;
+  cursor: pointer;
+  
+}
+.accordion-title:hover{
+color: var(--pink);
+.plus-cross{
+  scale:1.1
+}
 }
 .plus-cross{
-  
+  transition: 0.2s ease-in-out;
+}
+.plus-cross:hover{
+  scale:1.1;
   cursor:pointer;
 
 }
+.plus-cross.crossed {
+  transform: rotate(45deg);
+  
+  cursor:pointer;
+  }
 .content-container{
   width: 100%;
   display: flex;
@@ -345,11 +393,7 @@ gap: 5%;
   align-items: center;
   text-align: center;
 }
- .plus-cross.crossed {
-  transform: rotate(45deg);
-  transition: 0.2s ease-in-out;
-  cursor:pointer;
-  }
+ 
 
   .tags-container{
     display: flex;
@@ -405,6 +449,9 @@ align-items: center;
  
   align-items: center;
   gap: 5px;
+}
+.tagline{
+  font-style: italic;
 }
 .hero-img{
   display: flex;
@@ -521,25 +568,4 @@ align-items: center;
   40%, 70%  { stroke-opacity: 1; }
   100%      { stroke-opacity: 0.25; }
 }
-  /*
-    .gallery{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minMax(300px, 1fr));
-   
-    gap: 20px;
-    background-color: bisque;
-  }
-  .gallery-item{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-
-  }
-  .gallery-item img, .gallery-item video{
-    border: none;
-    height: auto;
-    width: 100%
-
-  }
-    */
+ 

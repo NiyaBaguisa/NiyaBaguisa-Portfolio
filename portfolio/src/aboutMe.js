@@ -6,6 +6,7 @@ export default function About(){
             <div className="about-content">
                 <div className="col-1">
                     <div id="me">
+                        <img src="./assets/me.gif" alt="A gif of Niya Baguisa"/>
                     </div>
                     <h2 class="colorful-name">
                         <span>N</span><span>i</span><span>y</span><span>a </span> 
@@ -31,18 +32,18 @@ export default function About(){
                 </div>
                 <div className="col-2">
                     <div className="text-block">
-                        <p>Hi! I'm Niya and I’m a web / app developer, and artist. I love learning new things and engaging in spaces where technology and art intersect. </p>
+                        <p>Nice to meet you! I’m a front end and app developer who enjoys engaging in spaces where technology and art intersect. I mostly build with React and React Native to create fun memorable experiences for the user. </p>
 
-<p>I mostly work with React and React Native, building things from scratch. I enjoy pushing myself to learn and try new things. I build apps, games and anything that brings me joy!</p>
+<p>I graduated from Purdue University with a degree in Game Development and Design with a minor in Anthropology. My games background taught me how to build enjoyable, interactive experiences, and anthropology trained me to be empathetic to the people on the other side of the screen.</p>
 
-<p>I love 3D modeling, crochet, anime and cozy games!</p>
+<p>I enjoy pushing myself to learn and try new things. In my spare time I build apps and games, 3D model, draw, crochet or learn a new hobby. Currently I am honing my video editing skills!</p>
                     </div>
                     <h2 id="skills-text">Skills</h2>
                     <div className="skill-container">
 <img src="https://skillicons.dev/icons?i=js,html,css,react,sqlite,ts,bootstrap,figma,p5js,ai,vscode,ps,blender,unity,unreal,cpp,py&perline=10"/>
                     </div>
                     <div className="resume-link">
-<a href="" target="_blank"><h2>View My Resume<span>&#8599;</span></h2>
+<a href="https://drive.google.com/file/d/1fZsiZ9ndEguSP2BP4VNf_2NI_YTwCwl_/view?usp=sharing" target="_blank"><h2>View My Resume<span>&#8599;</span></h2>
     </a>
                     </div>
                     

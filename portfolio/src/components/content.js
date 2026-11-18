@@ -32,13 +32,19 @@ export default function Content({project}){
 
 
                 </div>
+                
             </div>
+            <p className="tagline">{project.tagline}</p>
             {/*<Gallery images={project.images}/>*/}
-            <div class="hero-img">
+            <div className="hero-img">
                 {project.hero.type == "img" ? <img src={project.hero.str}/>:<video src={project.hero.str} loop muted autoplay="true"/> }    
             </div>
-            <div class="description container">
+            <div clasName="description container">
                 <p>{project.desc}</p>
+                <h3>Highlights</h3>
+                <ul>
+                    {project.highlights.map((item)=> <li>{item}</li>)}
+                </ul>
             </div>
            
 

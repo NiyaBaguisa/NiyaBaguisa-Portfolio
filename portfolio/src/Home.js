@@ -12,7 +12,7 @@ export default function Home(){
                 <RainbowLetters word="Baguisa"/>
             </div> 
             <div id="small-tag">
-                <h2 id="home-title">Developer & Designer</h2>
+                <h2 id="home-title">Front End Developer & Designer</h2>
            
                 </div>              
             

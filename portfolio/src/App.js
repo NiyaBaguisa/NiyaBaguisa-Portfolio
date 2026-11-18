@@ -8,7 +8,7 @@ import Playground from './playground';
 import Hamburger from './components/hamburgerMenu';
 import Tyson from './components/tyson';
 
-//TO DO: RESTRICT MOUSE SCROLL SO IT DOESNT GO TO EMPY GRID SPACES
+
 function App() {
   const edgeScrollSize = 20;
 const mousePos = useRef({x: null, y:null})
@@ -27,16 +27,9 @@ function edgeScroll(){
   if( x=== null || y === null){
     //stop listening
   }
-  else if(x < edgeScrollSize){
-    // move left (towards playground)
-    window.scrollBy({
-  top: 0,
-  left: -10,
-  behavior: "instant"
-});
-  }
-  // if mouse is within 10 pixels down
-  else if(y > window.innerHeight -edgeScrollSize){
+      // if mouse is within 10 pixels down
+  else if(y > window.innerHeight -edgeScrollSize && window.scrollX > window.innerWidth && window.scrollX <(window.innerWidth*2))
+  {
     // move down (towards projects)
     window.scrollBy({
   top: 10,
@@ -44,8 +37,18 @@ function edgeScroll(){
   behavior: "instant"
 });
   }
+
+  else if(x < edgeScrollSize && window.scrollY < window.innerHeight){
+    // move left (towards playground)
+    window.scrollBy({
+  top: 0,
+  left: -10,
+  behavior: "instant"
+});
+  }
+
   // if mouse is within 10 pixels to the right 
-  else if(x > window.innerWidth -edgeScrollSize){
+  else if(x > window.innerWidth -edgeScrollSize&& window.scrollY < window.innerHeight){
     // move right (towards about)
     window.scrollBy({
   top: 0,
@@ -53,9 +56,10 @@ function edgeScroll(){
   behavior: "instant"
 });
   }
+
   // if mouse is within 10 pixels of the top 
   else if(y <edgeScrollSize){
-    // move right (towards about)
+    // move up (towards home)
     window.scrollBy({
   top: -10,
   left: 0,
@@ -66,7 +70,10 @@ function edgeScroll(){
 }
 useEffect(()=>{
 //on mount naviagte to home
-window.scrollTo(100, 0);
+if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+window.scrollTo(window.innerWidth, 0);
 
   //on mount, listen for mouse movement
 window.addEventListener('mousemove', handleMouseMove)
