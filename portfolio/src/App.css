@@ -14,6 +14,7 @@ font-family: "Huninn", sans-serif;
 *::-webkit-scrollbar{
   display: none;
 }
+
 .hamburger-container{
   position: fixed;
   display: flex;
@@ -154,7 +155,11 @@ transform: rotate(225deg);
   transform: translateY(-100%);
   left: -110%;
   color: var(--pink);}
-.app{
+#camera{
+  width: 100vw;
+  height: 100vh;
+}
+  .app{
   display: grid;
   grid-template-columns: repeat(3, 100vw);
   grid-template-rows: repeat(2, 100vh) ;
@@ -173,7 +178,7 @@ align-items: center;
 justify-content: center;
   width: 100vw;
   height: 100vh;
-  
+  scroll-snap-align: center;
 }
  #home-content h1{
   font-size: 5em;

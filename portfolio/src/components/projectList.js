@@ -48,7 +48,7 @@ export const projectList =[
         highlights:["A responsive layout that works on desktop and mobile","Rainbow drawing activity: tracks mouse movement and draws on a canvas, cycles the color along each stroke, and fades the lines out after a set time","Edge scrolling: the view pans automatically when the cursor nears the edge of the screen"],
         bullet:"🐾",
         site: "this sites home",
-        hero: {str:"", type:""},
+        hero: {str:"./assets/portfolio/portfolio-sr.png", type:""},
         images: [],
         isActive: false
     },{title: "Hop to It",
