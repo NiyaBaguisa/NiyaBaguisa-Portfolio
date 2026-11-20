@@ -17,18 +17,18 @@ export default function Content({ project }) {
             </div>
             <div class="links-container">
                 <div class="site-link">
-                    <a aria-label="visit the live site (opens in a new tab)" href={project.site} target="_blank">Visit the Site<span>&#8599;</span></a>
+                    <a aria-label="visit the live site (opens in a new tab)" href={project.site} target="_blank" rel="noreferrer">Visit the Site<span>&#8599;</span></a>
 
                 </div>
                 <div class="git-link">
-                    <a aria-label="visit the Github repository (opens in a new tab)" href={project.repo} target="_blank">View the Repo<span>&#8599;</span></a>
+                    <a aria-label="visit the Github repository (opens in a new tab)" href={project.repo} target="_blank" rel="noreferrer">View the Repo<span>&#8599;</span></a>
                 </div>
 
             </div>
             <p className="tagline">{project.tagline}</p>
             {/*<Gallery images={project.images}/>*/}
             <div className="hero-img">
-                {project.hero.type == "img" ? <img src={project.hero.str} alt={`Hero image for the ${project.title}`} /> : <video src={project.hero.str} loop muted autoplay="true" alt={`Hero video for the ${project.title}`} />}
+                {project.hero.type === "img" ? <img src={project.hero.str} alt={`Hero for the ${project.title}`} /> : <video src={project.hero.str} loop muted autoplay="true" alt={`Hero for the ${project.title}`} />}
             </div>
             <div clasName="description container">
                 <p>{project.desc}</p>

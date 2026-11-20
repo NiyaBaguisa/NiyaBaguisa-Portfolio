@@ -15,14 +15,14 @@ export default function About() {
 
                     <h2 id="contact-text">Contact Me!</h2>
                     <div aria-label="Social media" className="icon-container">
-                        <a aria-label="Contact me on Github (opens in a new tab)" href="https://github.com/NiyaBaguisa" target="_blank">
-                            <img aria-hidden="true" src="https://skillicons.dev/icons?i=github&perline=2" />
+                        <a aria-label="Contact me on Github (opens in a new tab)" href="https://github.com/NiyaBaguisa" target="_blank" rel="noreferrer">
+                            <img aria-hidden="true" src="https://skillicons.dev/icons?i=github&perline=2" alt="Github icon" />
                         </a>
-                        <a aria-label="Contact me on LinkedIn (opens in a new tab)" href="https://www.linkedin.com/in/niyayates/" target="_blank">
-                            <img aria-hidden="true" src="https://skillicons.dev/icons?i=linkedin&perline=2" />
+                        <a aria-label="Contact me on LinkedIn (opens in a new tab)" href="https://www.linkedin.com/in/niyayates/" target="_blank" rel="noreferrer">
+                            <img aria-hidden="true" src="https://skillicons.dev/icons?i=linkedin&perline=2" alt="LinkedIn icon"/>
                         </a>
-                        <a aria-label="Contact me on Artstation (opens in a new tab)" href="https://niyayates1.artstation.com/" target="_blank">
-                            <img aria-hidden="true" id="artstation-icon" src="https://www.artstation.com/assets/about/logo/logo-artstation-plain-f084302dffa448a1582a8f7afb171673d1a420f9eddd5baeacbdb88e65089599.png" />
+                        <a aria-label="Contact me on Artstation (opens in a new tab)" href="https://niyayates1.artstation.com/" target="_blank" rel="noreferrer">
+                            <img aria-hidden="true" id="artstation-icon" src="https://www.artstation.com/assets/about/logo/logo-artstation-plain-f084302dffa448a1582a8f7afb171673d1a420f9eddd5baeacbdb88e65089599.png" alt="Artstation icon" />
                         </a>
 
                     </div>
@@ -41,7 +41,7 @@ export default function About() {
                         <img src="https://skillicons.dev/icons?i=js,html,css,react,sqlite,ts,bootstrap,figma,p5js,ai,vscode,ps,blender,unity,unreal,cpp,py&perline=5" alt="JavaScript, HTML, CSS, React, SQLite, TypeScript, Bootstrap, Figma, p5.js, Illustrator, VS Code, Photoshop, Blender, Unity, Unreal Engine, C++, Python" />
                     </div>
                     <div className="resume-link">
-                        <a href="https://drive.google.com/file/d/1fZsiZ9ndEguSP2BP4VNf_2NI_YTwCwl_/view?usp=sharing" target="_blank"><h2>View My Resume<span>&#8599;</span></h2>
+                        <a href="https://drive.google.com/file/d/1fZsiZ9ndEguSP2BP4VNf_2NI_YTwCwl_/view?usp=sharing" target="_blank" rel="noreferrer"><h2>View My Resume<span>&#8599;</span></h2>
                         </a>
                     </div>
                 </div>

@@ -35,7 +35,10 @@ function App() {
   const [pull, setPull] = useState(null);
   const timer = useRef(null);
 
-  //update the state for the mouse position
+
+
+  useEffect(() => {
+      //update the state for the mouse position
   function handleMouseMove(e) {
     mousePos.current = ({ x: e.clientX, y: e.clientY })
     //console.log(`X: ${e.clientX}, Y: ${e.clientY}`)
@@ -66,7 +69,7 @@ function App() {
     }
 
     //only move screens when the edge changes
-    if (currentEdge == edge.current) {
+    if (currentEdge === edge.current) {
       return;
     } else {
       // if the mouse moved preemptively cancel any pull in progress
@@ -86,8 +89,6 @@ function App() {
     }
 
   }
-
-  useEffect(() => {
     //on mount naviagte to home
     //if ('scrollRestoration' in window.history) {
     //    window.history.scrollRestoration = 'manual';

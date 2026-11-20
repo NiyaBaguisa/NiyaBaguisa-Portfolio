@@ -1,6 +1,5 @@
 
-import React, { useState } from "react";
-import Content from "./content";
+
 import { projectList } from "./projectList";
 import AccordionItem from "./accordionItem";
 
