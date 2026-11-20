@@ -103,6 +103,7 @@ function App() {
       window.removeEventListener('mousemove', handleMouseMove);
       clearTimeout(timer.current);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [screen])
 
   //translate the viewport camera based on what screen we are on
