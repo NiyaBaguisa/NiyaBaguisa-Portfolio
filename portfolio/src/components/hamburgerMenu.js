@@ -20,7 +20,7 @@ export default function Hamburger(){
                 <li><a href="#home-page">Home</a></li>
                 <li><a href="#project-page">Projects</a></li>
                 <li><a href="#about-page">About Me</a></li>
-                <li><a href="">Resume</a></li>
+                <li><a href="https://drive.google.com/file/d/1fZsiZ9ndEguSP2BP4VNf_2NI_YTwCwl_/view?usp=sharing" target="_blank">Resume</a></li>
             </ul>
 
 </div>

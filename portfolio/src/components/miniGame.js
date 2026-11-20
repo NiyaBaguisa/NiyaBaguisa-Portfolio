@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-
+import RainbowLetters from "./rainbowLetters";
 export default function MiniGame(){
     const mousePos = useRef({x:null, y:null})
    const prevPos =useRef({x:0, y:0});
@@ -69,7 +69,12 @@ gradient.addColorStop(1, "#70D6FF");
         clearTimeout(idleTimer);
     } 
 },[])
-    return(
-        <canvas ref={canvas} id="game-canvas" width={window.innerWidth} height={window.innerHeight}></canvas>
-    );
+    return(<>
+    <canvas ref={canvas} id="game-canvas" width={window.innerWidth} height={window.innerHeight}></canvas>
+   <div id="drawing-inst">
+<RainbowLetters word="Draw A Pretty Picture!"/>
+   </div>
+    
+    </>)
+        
 }

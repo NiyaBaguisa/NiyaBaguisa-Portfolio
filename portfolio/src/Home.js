@@ -27,7 +27,7 @@ export default function Home(){
         d="M41 15 V31 L45.5 26.5 L49 34 L52 32.5 L48.5 25 H54 Z"
         fill="black" />
 </svg>
-<p>Move cursor to the edges to navigate</p>
+<p id="edge-text">Move cursor to the edges to navigate</p>
             <p>Click to drop treats &#129460;</p>
                    
         </div>

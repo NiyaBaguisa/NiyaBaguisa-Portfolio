@@ -12,10 +12,8 @@ import Tyson from './components/tyson';
 function App() {
 const edgeScrollSize = 20;
 const mousePos = useRef({x: null, y:null});
-//length of time to hold before scroll
-const holdTime = 540;
 //what edge was touched 
-const [edge, setEdge] =useState(null);
+const edge =useRef(null);
 //what screen are we currently on
 const [screen, setScreen] = useState("home");
 //dictionary of neighbors each screen has and where
@@ -25,6 +23,17 @@ const neighbors={
   about: {left: "home"},
   proj: {up:"home"}
 }
+//length of time to hold before scroll
+const holdTime = 540;
+// how far the screen stretches while you hold an edge (in vw / vh)
+const pullOffset = {
+  left:  [5, 0],
+  right: [-5, 0],
+  up:    [0, 5],
+  down:  [0, -5],
+};
+const [pull, setPull] = useState(null); 
+const timer = useRef(null);
 
 //update the state for the mouse position
 function handleMouseMove(e){
@@ -33,55 +42,7 @@ function handleMouseMove(e){
   edgeScroll();
 }  
 
-/*OLD
-function edgeScroll(){
-  const {x, y} = mousePos.current;
-  // if mouse is within 10 pixels to the left 
-  if( x=== null || y === null){
-    //stop listening
-  }
-      // if mouse is within 10 pixels down
-  else if(y > window.innerHeight -edgeScrollSize && window.scrollX > window.innerWidth - 40 && window.scrollX <window.innerWidth +40)
-  {
-    // move down (towards projects)
-    window.scrollBy({
-  top: 4,
-  left: 0,
-  behavior: "instant"
-});
-  }
 
-  else if(x < edgeScrollSize && window.scrollY < window.innerHeight){
-    // move left (towards playground)
-    window.scrollBy({
-  top: 0,
-  left: -4,
-  behavior: "instant"
-});
-  }
-
-  // if mouse is within 10 pixels to the right 
-  else if(x > window.innerWidth -edgeScrollSize&& window.scrollY < window.innerHeight){
-    // move right (towards about)
-    window.scrollBy({
-  top: 0,
-  left: 4,
-  behavior: "instant"
-});
-  }
-
-  // if mouse is within 10 pixels of the top 
-  else if(y <edgeScrollSize){
-    // move up (towards home)
-    window.scrollBy({
-  top: -4,
-  left: 0,
-  behavior: "instant"
-});
-  }
- 
-}
-*/
  function edgeScroll(){
    const {x, y} = mousePos.current;
 
@@ -105,15 +66,22 @@ function edgeScroll(){
   }
 
   //only move screens when the edge changes
- if(currentEdge == edge){
+ if(currentEdge == edge.current){
 return;
  }else{
-  setEdge(currentEdge);
+   // if the mouse moved preemptively cancel any pull in progress
+      clearTimeout(timer.current);
+      setPull(null);
+
+  edge.current=currentEdge;
   // is the mouse on an edge? & does this screen have a neighbor on this edge
   const myNeighbor= neighbors[screen][currentEdge];
   if(currentEdge && myNeighbor){
-setScreen(myNeighbor)
-
+setPull(currentEdge);
+ timer.current = setTimeout(() => {
+          setPull(null);
+          setScreen(myNeighbor);
+        }, holdTime);
   }
  }
 
@@ -121,60 +89,52 @@ setScreen(myNeighbor)
  
 useEffect(()=>{
 //on mount naviagte to home
-if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
-window.scrollTo(window.innerWidth, 0);
+//if ('scrollRestoration' in window.history) {
+  //    window.history.scrollRestoration = 'manual';
+   // }
+//window.scrollTo(window.innerWidth, 0);
 
   //on mount, listen for mouse movement
 window.addEventListener('mousemove', handleMouseMove)
 //window.addEventListener('mousemove', edgeScroll)
-/*OLD
-//ck animation frame and update position and scroll
-let frame;
-  function tick() {
-    edgeScroll();                         
-    frame = requestAnimationFrame(tick);  
-  }
-  frame = requestAnimationFrame(tick); */
- return () => window.removeEventListener('mousemove', handleMouseMove);
+
+ return () => {window.removeEventListener('mousemove', handleMouseMove);
+ clearTimeout(timer.current);}
   },[screen])
 
 //translate the viewport camera based on what screen we are on
 let translateX =0;
 let translateY =0;
+
+const pullValuesX = (pull ? pullOffset[pull][0] : 0);
+const pullValuesY =(pull ? pullOffset[pull][1] : 0);
 if(screen === "proj"){
-  translateX = 0;
-  translateY = -100;
+  translateX = -100 +pullValuesX;
+  translateY = -100 +pullValuesY;
 }else if(screen === "play")
 {
-  translateX= 100;
-  translateY= 0;}
+  translateX= 0 + pullValuesX;
+  translateY= 0 +pullValuesY;}
 else if(screen === "about"){
-translateX = -100;
-translateY = 0;
-}else{
-  //its home
-  //home - right
-  if (edge==="right"){
-translateX= -100;
-translateY = 0;
-  }else if(edge === "left"){
-translateX= 100;
-translateY = 0;
-  }else if(edge === "up"){
-translateX= 0;
-translateY = 100;
-  }
-}
+translateX = -200 +pullValuesX;
+translateY = 0 +pullValuesY;
+}else if  (screen=== "home"){
+  translateX = -100 + pullValuesX;
+  translateY = 0 + pullValuesY;
 
+  }
+
+
+ const pullingMove = `transform ${holdTime}ms cubic-bezier(0.1, 0.7, 0.3, 1)`;   // slow, tense
+  const snapMove = 'transform 900ms cubic-bezier(0.34, 1.56, 0.64, 1)';        // overshoots, then settles
  return (
     <>
     <Hamburger/>
     
  
     <Tyson/>
-    <div id="camera" style={{transform: `translate(${translateX}vw, ${translateY}vh)`}}>
+    <div id="camera-mask">
+ <div id="camera" style={{transform: `translate(${translateX}vw, ${translateY}vh)`,  transition: pull ? pullingMove : snapMove}}>
       <div className="arrow right a" >
        <p className="about-label chevron-label">About Me</p>
       <span></span>
@@ -212,6 +172,8 @@ translateY = 100;
       <Playground/>
     </div>
     </div>
+    </div>
+   
   
     </>
    

@@ -11,9 +11,7 @@
   scrollbar-width: none;
 font-family: "Huninn", sans-serif;
 }
-*::-webkit-scrollbar{
-  display: none;
-}
+
 
 .hamburger-container{
   position: fixed;
@@ -155,7 +153,14 @@ transform: rotate(225deg);
   transform: translateY(-100%);
   left: -110%;
   color: var(--pink);}
-#camera{
+#camera-mask{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  
+
+}
+  #camera{
   width: 100vw;
   height: 100vh;
 }
@@ -330,6 +335,9 @@ width: 60%;
   justify-content: center;
   align-items: center;
 }
+#drawing-inst{
+  position: absolute;
+}
 
 #game-canvas{
   opacity:1;
@@ -344,7 +352,7 @@ transition: opacity 0.5s ease-out;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  overflow-y: auto;
   width: 100vw;
   
   
@@ -574,3 +582,93 @@ align-items: center;
   100%      { stroke-opacity: 0.25; }
 }
  
+@media (max-width: 768px) {
+*{
+ 
+  scrollbar-width: auto;
+
+}
+  #camera-mask{
+    height: auto;
+    min-height: 100vh;
+    overflow-y: visible;
+  }
+
+  #camera{
+    height: auto;
+    transform: none !important;
+    transition: none !important;
+  }
+
+   .app{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: none;
+  grid-auto-rows: auto;
+  grid-template-areas: 
+  "home"
+  "proj"
+  "about"
+  "play";
+
+  width: 100vw;
+  height: auto;
+}
+
+.arrow{
+  display: none;
+}
+#edge-text{
+  display:none;
+}
+.edge-icon{
+    display: none;
+  }
+#home-content{
+  grid-template-columns: 1fr;
+  text-align: center;
+  width: 90vw;
+  
+}
+#greeting,
+#first-name,
+#last-name,
+#small-tag{
+  grid-column: 1 / -1;
+  justify-self: center;
+  text-align: center;
+}
+#first-name{
+  margin-left: 0;
+}
+  #about-page{
+    margin-top: 50vh;
+  }
+.about-content{
+  flex-direction: column-reverse;
+}
+.col-1{
+  width: 60vw;
+}
+.col-2{
+  width: 60vw;
+}
+#me{
+  width: 60vw;
+  margin-bottom: 0;
+  padding: 0;
+}
+.colorful-name{
+  font-size: 3rem;
+  margin-top: 0;
+}
+#project-page{
+  height: auto;
+}
+.tags-container{
+  flex-wrap: wrap;
+  margin-bottom: 2vh;
+}
+
+
+}

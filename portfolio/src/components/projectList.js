@@ -42,13 +42,13 @@ export const projectList =[
         images: [{str:"./assets/affirm/noise.gif",  type:"img"}, {str: "./assets/affirm/affirm-ss.png", type: "img"}],
         isActive: false
     },{title: "Portfolio",
-        tags: ["React", "JavaScript", "CSS"],
+        tags: ["React", "JavaScript", "CSS","HTML Canvas"],
         tagline:"A playful personal site that shows my work and has a playground of small interactive activities.",
         desc: "I didn’t want a stiff, corporate portfolio, so I made the site feel like me through incorporating some drawings I made of my dog Tyson, a gif I made of myself, Use of my favorite colors in the palette and a bright minimal aesthetic that can be seen in a lot of my work.",
         highlights:["A responsive layout that works on desktop and mobile","Rainbow drawing activity: tracks mouse movement and draws on a canvas, cycles the color along each stroke, and fades the lines out after a set time","Edge scrolling: the view pans automatically when the cursor nears the edge of the screen"],
         bullet:"🐾",
         site: "this sites home",
-        hero: {str:"./assets/portfolio/portfolio-sr.png", type:""},
+        hero: {str:"./assets/portfolio/portfolio-sr.png", type:"img"},
         images: [],
         isActive: false
     },{title: "Hop to It",

@@ -8,7 +8,7 @@ export default function About(){
                     <div id="me">
                         <img src="./assets/me.gif" alt="A gif of Niya Baguisa"/>
                     </div>
-                    <h2 class="colorful-name">
+                    <h2 className="colorful-name">
                         <span>N</span><span>i</span><span>y</span><span>a </span> 
                         <span>B</span><span>a</span><span>g</span><span>u</span><span>i</span><span>s</span><span>a</span></h2>
                     <p>Developer & Designer</p>
@@ -40,7 +40,7 @@ export default function About(){
                     </div>
                     <h2 id="skills-text">Skills</h2>
                     <div className="skill-container">
-<img src="https://skillicons.dev/icons?i=js,html,css,react,sqlite,ts,bootstrap,figma,p5js,ai,vscode,ps,blender,unity,unreal,cpp,py&perline=10"/>
+<img src="https://skillicons.dev/icons?i=js,html,css,react,sqlite,ts,bootstrap,figma,p5js,ai,vscode,ps,blender,unity,unreal,cpp,py&perline=5"/>
                     </div>
                     <div className="resume-link">
 <a href="https://drive.google.com/file/d/1fZsiZ9ndEguSP2BP4VNf_2NI_YTwCwl_/view?usp=sharing" target="_blank"><h2>View My Resume<span>&#8599;</span></h2>
