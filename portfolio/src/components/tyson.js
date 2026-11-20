@@ -17,8 +17,11 @@ const PAW_STEP = 40;
 const PAW_ROTATE = 45;
 const MOBILE_QUERY = "(max-width: 768px)";
 
-Object.values(FRAMES).flat().forEach((src) => { new Image().src = src; });
-
+const PRELOADED = Object.values(FRAMES).flat().map((src) => {
+  const img = new Image();
+  img.src = src;
+  return img;
+});
 export default function Tyson() {
   const wrapRef = useRef(null);
   const imgRef = useRef(null);
@@ -184,7 +187,11 @@ export default function Tyson() {
           d.frame = 0;
         }
 
-        imgRef.current.src = set[d.frame % set.length];
+       const next = set[d.frame % set.length];
+if (d.src !== next) {
+  imgRef.current.src = next;
+  d.src = next;
+}
         imgRef.current.style.transform = d.flip ? "scaleX(-1)" : "none";
         imgRef.current.classList.toggle("dog-eating-fallback", d.eating && !FRAMES.eat);
         wrapRef.current.style.transform =
