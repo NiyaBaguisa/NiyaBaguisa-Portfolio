@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 
 const FRAMES = {
   front: ["./assets/sprites/front/front1.png", "./assets/sprites/front/front2.png", "./assets/sprites/front/front3.png", "./assets/sprites/front/front4.png"],
-  back:  ["./assets/sprites/back/back1.png",  "./assets/sprites/back/back2.png",  "./assets/sprites/back/back3.png", "./assets/sprites/back/back4.png"],
-  side:  ["./assets/sprites/side/side1.png",  "./assets/sprites/side/side2.png",  "./assets/sprites/side/side4.png"],
-  eat:   ["./assets/sprites/eat/eat1.png", "./assets/sprites/eat/eat2.png"],
+  back: ["./assets/sprites/back/back1.png", "./assets/sprites/back/back2.png", "./assets/sprites/back/back3.png", "./assets/sprites/back/back4.png"],
+  side: ["./assets/sprites/side/side1.png", "./assets/sprites/side/side2.png", "./assets/sprites/side/side4.png"],
+  eat: ["./assets/sprites/eat/eat1.png", "./assets/sprites/eat/eat2.png"],
 };
 
 const SIZE = 96;
@@ -65,7 +65,7 @@ export default function Tyson() {
         }
         return {
           minX: left + SIZE / 2, maxX: right - SIZE / 2,
-          minY: top + SIZE / 2,  maxY: bottom - SIZE / 2,
+          minY: top + SIZE / 2, maxY: bottom - SIZE / 2,
         };
       };
       const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
@@ -222,7 +222,6 @@ export default function Tyson() {
           🦴
         </div>
       ))}
-
       <div ref={wrapRef} className="dog">
         <img ref={imgRef} src={FRAMES.front[0]} width={SIZE} height={SIZE} alt="" />
       </div>
