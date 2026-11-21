@@ -753,12 +753,15 @@ h1>span:nth-child(10n +5):hover {
       "home"
       "proj"
       "about"
+      "play";
       
 
     width: 100vw;
     height: auto;
   }
-
+#playground-page{
+  display: none;
+}
   .arrow {
     display: none;
   }
